@@ -36,5 +36,9 @@ freertos-rust = {path = "../freertos-rust"}
 #[target.armv7-none-eabihf.dependencies]
 #cortex-a = "6.1.0"
 
+# Example: zynq
+[target.armv7-none-eabihf.dependencies]
+cortex-a = "6.1.0"
+
 [build-dependencies]
 freertos-cargo-build = {path = "../freertos-cargo-build"}
