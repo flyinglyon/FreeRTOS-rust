@@ -184,6 +184,7 @@ impl Builder {
             // TODO We should support feature "trustzone"
             ("thumbv8m.main-none-eabi", _, _, _) => "GCC/ARM_CM33_NTZ/non_secure",
             ("thumbv8m.main-none-eabihf", _, _, _) => "GCC/ARM_CM33_NTZ/non_secure",
+	    ("armv7-none-eabihf", _, _, _) => "GCC/ARM_CR5",
             _ => {
                 panic!("Unknown target: '{}', from TARGET environment variable.", target);
             }

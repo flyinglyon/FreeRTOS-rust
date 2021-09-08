@@ -28,21 +28,22 @@ fn main() {
         }
     }
 
-    if target == "x86_64-unknown-linux-gnu" {
+    else if target == "x86_64-unknown-linux-gnu" {
         b.freertos_config("examples/linux");
 
         b.get_cc().file("examples/linux/hooks.c");
         // b.get_cc().file("examples/linux/Run-time-stats-utils.c"); // Unimplemented yet..
     }
 
-    if target == "thumbv7m-none-eabi" {
+    else if target == "thumbv7m-none-eabi" {
         b.freertos_config("examples/stm32-cortex-m3");
         copy(
             "examples/stm32-cortex-m3/memory.x",
             PathBuf::from(out_dir.as_str()).join("memory.x"),
         ).unwrap();
     }
-    if target == "thumbv8m.main-none-eabihf" {
+    
+    else if target == "thumbv8m.main-none-eabihf" {
         b.freertos_config("examples/nrf9160");
         copy(
             "examples/nrf9160/memory.x",
@@ -50,7 +51,23 @@ fn main() {
         ).unwrap();
     }
 
-    b.compile().unwrap_or_else(|e| { panic!(e.to_string()) });
+    else if target == "armv7-none-eabihf" {
+        b.freertos_config("examples/zynq");
+        copy(
+            "examples/zynq/memory.x",
+            PathBuf::from(out_dir.as_str()).join("memory.x"),
+        ).unwrap();
+    }
+
+    else if target == "armv7a-none-eabihf" {
+        b.freertos_config("examples/zynq");
+        copy(
+            "examples/zynq/memory.x",
+            PathBuf::from(out_dir.as_str()).join("memory.x"),
+        ).unwrap();
+    }
+
+    b.compile().unwrap_or_else(|e| { panic!("{}", e.to_string()) });
 }
 
 /// Print relevant environment variables

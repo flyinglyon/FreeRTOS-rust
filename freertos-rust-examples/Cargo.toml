@@ -32,5 +32,9 @@ nrf9160-pac = "0.2.1"
 # Example: linux
 [target.x86_64-unknown-linux-gnu.dependencies]
 
+# Example: zynq
+[target.armv7-none-eabihf.dependencies]
+cortex-a = "6.1.0"
+
 [build-dependencies]
 freertos-cargo-build = {path = "../freertos-cargo-build"}
