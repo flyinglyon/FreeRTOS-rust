@@ -61,7 +61,7 @@ fn main() {
         b.get_cc().flag("-mfloat-abi=hard");
         copy(
             "examples/zynq/memory.x",
-            PathBuf::from(out_dir.as_str()).join("memory.x"),
+            PathBuf::from(out_dir.as_str()).join("link.x"),
         ).unwrap();
     }
 
@@ -71,7 +71,7 @@ fn main() {
         b.get_cc().flag("-mfloat-abi=softfp");
         copy(
             "examples/zynq/memory.x",
-            PathBuf::from(out_dir.as_str()).join("memory.x"),
+            PathBuf::from(out_dir.as_str()).join("link.x"),
         ).unwrap();
     }
 

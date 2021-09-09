@@ -1,12 +1,10 @@
-#![no_std]
-#![no_main]
+#![feature(restricted_std)]
 use freertos_rust::*;
 
 #[global_allocator]
 static GLOBAL: FreeRtosAllocator = FreeRtosAllocator;
 
 
-#[entry]
 fn main() {
     let x = Box::new(15);
     println!("Boxed int '{}' (allocator test)", x);

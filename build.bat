@@ -1,0 +1,1 @@
+cargo build --package freertos-rust-examples --example zynq --target=armv7-none-eabihf.json -Zbuild-std=std,panic_abort %1 %2 %3
